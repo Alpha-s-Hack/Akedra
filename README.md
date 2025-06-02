@@ -99,7 +99,7 @@ We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for
 
 ## 📞 Contact
 
-For questions or collaboration inquiries, please reach out to the Akedra team at [contact@akedra.org](mailto:akedravault@mailinator.com).
+For questions or collaboration inquiries, please reach out to the Akedra team at [akedravault@mailinator.com](mailto:akedravault@mailinator.com).
 
 ---
 
