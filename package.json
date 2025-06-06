@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --exit-child src/app.ts",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
     "multer": "^2.0.1",
-    "path-to-regexp": "^6.2.1"
+    "path-to-regexp": "^6.2.1",
+    "prettier": "^3.5.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",

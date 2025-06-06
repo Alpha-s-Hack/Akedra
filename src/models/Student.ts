@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from "mongoose";
 
 export interface IStudent extends Document {
   name: string;
@@ -18,5 +18,4 @@ const StudentSchema = new Schema<IStudent>({
   password: { type: String, required: true },
 });
 
-export default mongoose.model<IStudent>('Student', StudentSchema);
-
+export default mongoose.model<IStudent>("Student", StudentSchema);

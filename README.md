@@ -36,30 +36,34 @@ Millions of students in conflict zones, refugee camps, and rural areas lose acce
 
 ## 🛠️ Tech Stack
 
-### Backend  
-- **Bolt.new** — lightweight backend framework  
-- **Algorand Blockchain** — decentralized, secure storage of credential hashes  
-- **Bolt DB** — off-chain metadata storage  
-- **Node.js / Express** — API and server-side logic  
+### Backend
 
-### Frontend  
-- **React.js** — student profiles and credential management UI  
-- **Progressive Web App (PWA)** — offline support and native-like experience  
-- **Netlify** — deployment and hosting  
-- **Custom Domain** — `mycerts.me` via IONOS and Entri  
+- **Bolt.new** — lightweight backend framework
+- **Algorand Blockchain** — decentralized, secure storage of credential hashes
+- **Bolt DB** — off-chain metadata storage
+- **Node.js / Express** — API and server-side logic
 
-### AI Integration  
-- **Tavus + ElevenLabs** — AI-powered multilingual academic counseling and advice  
+### Frontend
+
+- **React.js** — student profiles and credential management UI
+- **Progressive Web App (PWA)** — offline support and native-like experience
+- **Netlify** — deployment and hosting
+- **Custom Domain** — `mycerts.me` via IONOS and Entri
+
+### AI Integration
+
+- **Tavus + ElevenLabs** — AI-powered multilingual academic counseling and advice
 
 ---
 
 ## 🔧 Getting Started
 
-1. **Clone the repo**  
+1. **Clone the repo**
+
    ```bash
    git clone https://github.com/your-org/akedra.git
    cd akedra
-    ````
+   ```
 
 2. **Install backend dependencies**
 
@@ -80,8 +84,8 @@ Millions of students in conflict zones, refugee camps, and rural areas lose acce
 
 5. **Run the app**
 
-   * Backend: `npm run start`
-   * Frontend: `npm run start`
+   - Backend: `npm run start`
+   - Frontend: `npm run start`
 
 ---
 
@@ -107,4 +111,7 @@ For questions or collaboration inquiries, please reach out to the Akedra team at
 Your Credentials. Your Future.
 
 ```Would you like me to help build the `CONTRIBUTING.md` or a more detailed developer guide next?
+
+```
+
 ```
