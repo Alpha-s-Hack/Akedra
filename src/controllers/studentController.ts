@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Student from "../models/Student";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../config/config";
+import { JWT_SECRET } from "../configs/config";
 
 export const registerStudent = async (
   req: Request,

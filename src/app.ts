@@ -12,8 +12,11 @@ import cors from "cors";
 import fileUpload from "express-fileupload";
 
 // Local imports
-import { MONGO_URI, PORT } from "./config/config";
+import { MONGO_URI, PORT } from "./configs/config";
 import studentRoutes from "./routes/studentRoutes";
+
+// Configs import
+import logger from "./configs/logger.config";
 
 // Create express app
 const app = express();
@@ -91,5 +94,5 @@ app.use(
 
 // Start the dev serverAdd commentMore actions
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  logger.info(`Server listening on port ${PORT}`);
 });
