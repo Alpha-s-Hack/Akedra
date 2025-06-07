@@ -15,8 +15,8 @@ import createHttpError from "http-errors";
 import studentRoutes from "./routes/studentRoutes";
 
 // Configs import
-import { PORT } from "./configs/db.config";
-import logger from "./configs/logger.config";
+import { PORT } from "./configs/dbConfig";
+import logger from "./configs/loggerConfig";
 
 // Create express app
 const app = express();

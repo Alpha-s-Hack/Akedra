@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 // Local imports
-import logger from "./logger.config";
+import logger from "./loggerConfig";
 
 // Load env variables
 dotenv.config();
