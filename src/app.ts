@@ -2,7 +2,6 @@ import path from "path";
 
 // Third-party imports
 import express, { Request, Response, NextFunction } from "express";
-import mongoose from "mongoose";
 import morgan from "morgan";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
@@ -13,10 +12,10 @@ import fileUpload from "express-fileupload";
 import createHttpError from "http-errors";
 
 // Local imports
-import { MONGO_URI, PORT } from "./configs/config";
 import studentRoutes from "./routes/studentRoutes";
 
 // Configs import
+import { PORT } from "./configs/db.config";
 import logger from "./configs/logger.config";
 
 // Create express app
