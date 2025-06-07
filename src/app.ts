@@ -1,7 +1,7 @@
 import path from "path";
 
 // Third-party imports
-import express, { Request, Response } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import fileUpload from "express-fileupload";
+import createHttpError from "http-errors";
 
 // Local imports
 import { MONGO_URI, PORT } from "./configs/config";
@@ -95,6 +96,26 @@ app.use(
 // Start the dev server
 let server = app.listen(PORT, () => {
   logger.info(`Server listening on port ${PORT}`);
+});
+
+// Catch all incoming 404 Not Found errorAdd commentMore actions
+app.use(async (req: Request, res: Response, next: NextFunction) => {
+  next(
+    createHttpError.NotFound(
+      "The requested resource could not be found on this server"
+    )
+  );
+});
+
+// Handle HTTP errors
+app.use(async (err: any, req: Request, res: Response, next: NextFunction) => {
+  res.status(err.status || 500);
+  res.send({
+    error: {
+      status: err.status || 500,
+      message: err.message,
+    },
+  });
 });
 
 // Terminate server on error
