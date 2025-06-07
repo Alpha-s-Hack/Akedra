@@ -1,9 +1,15 @@
 import path from "path";
-import cors from "cors";
 
 // Third-party imports
-import express from "express";
+import express, { Request, Response } from "express";
 import mongoose from "mongoose";
+import morgan from "morgan";
+import helmet from "helmet";
+import mongoSanitize from "express-mongo-sanitize";
+import cookieParser from "cookie-parser";
+import compression from "compression";
+import cors from "cors";
+import fileUpload from "express-fileupload";
 
 // Local imports
 import { MONGO_URI, PORT } from "./config/config";
@@ -30,12 +36,34 @@ const uploadPath = path.resolve(__dirname, "../uploads");
 app.use("/uploads", express.static(uploadPath));
 console.log("Upload directory path:", uploadPath);
 
-// Request logging middleware
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
-  console.log("Request Headers:", req.headers);
-  next();
-});
+// HTTP request logger middlewareAdd commentMore actions
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
+}
+
+// Secure express apps with various HTTP headers
+app.use(helmet());
+
+// Parse JSON request body
+app.use(express.json());
+
+// Parse JSON request url
+app.use(express.urlencoded({ extended: true }));
+
+// Sanitize user-supplied data to prevent MongoDB operator injection
+app.use(mongoSanitize());
+
+// Enable cookie parser
+app.use(cookieParser());
+
+// Node.js compression middleware
+app.use(compression());
+
+// Setup CORS
+app.use(cors());
+
+// Simple express file upload middleware that wraps around `Busboy`
+app.use(fileUpload({ useTempFiles: true }));
 
 // Mount routes
 app.use("/api/students", studentRoutes);
@@ -61,33 +89,7 @@ app.use(
   }
 );
 
-// Start server function
-const startServer = async () => {
-  try {
-    await mongoose.connect(MONGO_URI);
-    console.log("MongoDB connected");
-
-    const server = app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-      console.log(`Upload path configured at: ${uploadPath}`);
-    });
-
-    server.on("error", (error: any) => {
-      if (error.code === "EADDRINUSE") {
-        console.log(`Port ${PORT} is busy, trying again...`);
-        setTimeout(() => {
-          server.close();
-          server.listen(PORT);
-        }, 1000);
-      } else {
-        console.error("Server error:", error);
-      }
-    });
-  } catch (error) {
-    console.error("Startup error:", error);
-    process.exit(1);
-  }
-};
-
-// Start the server
-startServer();
+// Start the dev serverAdd commentMore actions
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
