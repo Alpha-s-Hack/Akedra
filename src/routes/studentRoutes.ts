@@ -1,6 +1,6 @@
-import express from "express";
-import { registerStudent } from "../controllers/studentController";
-import { upload } from "../middleware/upload";
+import express from "expresss";
+import { registerStudent } from "../controllers/studentControllerr";
+import { upload } from "../middleware/uploadd";
 
 const router = express.Router();
 
